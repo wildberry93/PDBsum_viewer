@@ -23,14 +23,11 @@ var apply_styles = function(viewer){
 	var metals_res = [];
 
 	var dfn_f = readFile(dfn_file);
-	var splitted = dfn_f.split("\n");  
+	var splitted = dfn_f.split("\n");
 
 	for (var i = 0; i < splitted.length; i++) {
-		if (splitted[i][0] === "P"){
-			if (splitted[i][1] != mut_chain_id)	{
-				chains_prot.push(splitted[i][1]);
-			}
-
+		if (splitted[i][0] === "P"){			
+			chains_prot.push(splitted[i][1]);
 		} else if (splitted[i][0] === "N"){
 			chains_nuc.push(splitted[i][1]);
 		} else if (splitted[i][0] === "l"){
@@ -55,13 +52,18 @@ var apply_styles = function(viewer){
 		glviewer.setStyle({resn:" "+metals_res[i]}, {sphere: {color: "blue"}} ); // metals resis
 	}
 
-	//glviewer.addResLabels({chain: mut_chain_id, resi: muts_pos, atom: 'CA'}, 
-	//		{fontSize: 13, showBackground: false, fontColor: 'black'}); //muts resis labels resn
+}
 
+function readFile(file) {
+    var http = new XMLHttpRequest();
+    http.open('get', file, false);
+    http.send();
+    var text = http.responseText;
+
+    return text;
 }
 
 $(document).ready(function() {
-
 	// this should be changed later
 	file = readFile(pdb_file);
 

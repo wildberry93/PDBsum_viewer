@@ -1,8 +1,10 @@
 <meta charset="utf-8">
 
-<title>PDBsum plugin</title>
+<title>DisaStr plugin</title>
 <script src="http://3Dmol.csb.pitt.edu/build/3Dmol-min.js"></script>
-<script type="pdbsum_plugin.js"></script>
+<script src="pdbsum_plugin.js"></script>
+
+<!-- CSS /-->
 
 <style>
   .article {
@@ -14,12 +16,50 @@
     width: 100%;
     background-color: #ffffff;
     height: 80vh;
+    float: left;
  }
-  </style>
+ .col-2 {
+    width: 50%;
+    background-color: #ffffff;
+    height: 80vh;
+    float: right;
+    overflow-y: scroll;
+ }
+ .button {
+ 	width: 80px;
+    height: 40px;
+ }
 
- <body>
+</style>
+
+<body>
 	<div class="article">
 		<div id="gldiv" class="col-1"></div>
+		
 	</div>
+
+	<hr style="margin: 2;">
+	<br>
+
+	<!-- Buttons /-->
+
+	<!-- <input type="button" value="Stick" class='button'
+		onclick="set_custom_stick(glviewer);"></input>
+
+	<input type="button" value="Line" class='button'
+		onclick="set_custom_line(glviewer);"></input>
+
+	<input type="button" value="Sphere" class='button'
+		onclick="set_custom_sphere(glviewer);"></input>
+
+	 <input type="button" value="Cartoon" class='button'
+		onclick="set_custom_cartoon(glviewer);"></input> 
 	
+	 <input type="button" value="Colour SS" class='button'
+		onclick="colorSS(glviewer);"></input> /-->
+
+	<input type="button" value="Recenter" class='button' 
+		onclick="glviewer.zoomTo();"></input>
+	<br>
+
 </body>
