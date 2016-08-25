@@ -10,11 +10,10 @@ var color_dict = {'A':'#cc66ff', 'B':'#ff0000', 'C':'#cc9900', 'D':'#ff69b4', 'E
 				'|':'#00ff00'};
 
 var glviewer = null;
-var labels = [];
 var pdb_file = 'file:///C:/Users/jagoda/Desktop/PDBsum_repo/3aiy.pdb';
 var dfn_file = 'file:///C:/Users/jagoda/Desktop/PDBsum_repo/rasmol.dfn';
 
-var apply_styles = function(viewer){
+var apply_styles = function(viewer, dfn_file){
 	var chains_prot = [];
 	var chains_nuc = [];
 	var ligands_res = [];
@@ -72,7 +71,7 @@ $(document).ready(function() {
 	glviewer = $3Dmol.createViewer("gldiv");
 
 	m = glviewer.addModel(file, "pqr");
-	apply_styles(glviewer);
+	apply_styles(glviewer, dfn_file);
     glviewer.render();
     
     var m = glviewer.getModel();
